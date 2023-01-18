@@ -106,4 +106,22 @@ const IMAGESIZES = {
   logo: 200,
 };
 
-export {COLORS, SIZES, FONTFAMILY, FONTS, ICONSIZES, IMAGESIZES};
+const screenNames = {
+  splash: `Splashscreen`,
+  home: `Homescreen`,
+};
+
+const header_not_shown = {
+  headerShown: false,
+};
+
+export {
+  COLORS,
+  SIZES,
+  FONTFAMILY,
+  FONTS,
+  screenNames,
+  header_not_shown,
+  ICONSIZES,
+  IMAGESIZES,
+};

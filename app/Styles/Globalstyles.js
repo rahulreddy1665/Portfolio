@@ -19,6 +19,13 @@ export const GlobalStyles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'flex-start',
   },
+  AnimatedProfileView: {
+    flexDirection: 'row',
+    // paddingHorizontal: 32,
+    // marginVertical: 36,
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+  },
   ProfileImage: {
     width: 50,
     height: 50,
@@ -68,6 +75,21 @@ export const GlobalStyles = StyleSheet.create({
   },
   Icons: {
     color: COLORS.white,
-    marginVertical: 40,
+    marginLeft: 10,
+  },
+  SocialIcons: {
+    color: COLORS.themeColor,
+    borderRadius: 5,
+    marginRight: 5,
+  },
+  Row: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+  },
+  SplashContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    backgroundColor: COLORS.white,
+    alignItems: 'center',
   },
 });
