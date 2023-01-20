@@ -7,26 +7,13 @@ const projects = [
     link: 'https://play.google.com/store/apps/details?id=com.sambavreactcli',
   },
   {
-    name: 'Royal perkk',
-    icon: 'account-network',
-    description:
-      'Constructed a e-commerce app which allows the users to buy different products during registration process.Implemented Insta mojo payment gateway',
-    link: 'https://apps.apple.com/in/app/royal-perkk/id1613940439',
-  },
-  {
     name: 'Royal Volunteers',
     icon: 'blood-bag',
     description:
       'Constructed a blood donation app which allows the users to request for blood without registering into the app',
     link: 'https://play.google.com/store/apps/details?id=com.royalvolunteers',
   },
-  {
-    name: 'Viprabandhana',
-    icon: 'supervised-user-circle',
-    description:
-      'Developed a matrimonial app which helps the users to find their potential match using the customizable filters of the app.Implemented Firebase authentication & push notifications',
-    link: 'Null',
-  },
+
   {
     name: 'Ready Vet',
     icon: 'doctor',
@@ -39,6 +26,20 @@ const projects = [
     icon: 'robot',
     description:
       'Constructed E-commerce app which allows the admin to posts vlogs,offers & customers to redeem offers and share the vlogs ',
+    link: 'Null',
+  },
+  {
+    name: 'Royal perkk',
+    icon: 'account-network',
+    description:
+      'Constructed a e-commerce app which allows the users to buy different products during registration process.Implemented Insta mojo payment gateway',
+    link: 'https://apps.apple.com/in/app/royal-perkk/id1613940439',
+  },
+  {
+    name: 'Viprabandhana',
+    icon: 'supervised-user-circle',
+    description:
+      'Developed a matrimonial app which helps the users to find their potential match using the customizable filters of the app.Implemented Firebase authentication & push notifications',
     link: 'Null',
   },
 ];

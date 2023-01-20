@@ -38,7 +38,7 @@ const handleProject = e => {
       }
     });
   } else {
-    Toast.show('This is a long toast.', Toast.LONG);
+    Toast.show('This app is under maintainence', Toast.LONG);
   }
 };
 
