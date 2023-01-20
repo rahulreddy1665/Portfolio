@@ -17,6 +17,10 @@ import {GlobalStyles} from '../Styles/Globalstyles';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import Toast from 'react-native-simple-toast';
 import projects from '../helpers/DummyData';
+import {
+  SafeAreaProvider,
+  useSafeAreaInsets,
+} from 'react-native-safe-area-context';
 
 const skillIcons = [
   'language-html5',
@@ -42,19 +46,40 @@ const handleProject = e => {
   }
 };
 
-const H_MAX_HEIGHT = 100;
-const H_MIN_HEIGHT = 65;
-const H_SCROLL_DISTANCE = H_MAX_HEIGHT - H_MIN_HEIGHT;
-
 const Home = () => {
   const scrollOffsetY = useRef(new Animated.Value(0)).current;
-  const headerScrollHeight = scrollOffsetY.interpolate({
-    inputRange: [0, H_SCROLL_DISTANCE],
-    outputRange: [H_MAX_HEIGHT, H_MIN_HEIGHT],
-    extrapolate: 'clamp',
-  });
+
+  const insets = useSafeAreaInsets();
   return (
     <View style={{flex: 1}}>
+      <Animated.View
+        style={{
+          zIndex: 2,
+          position: 'absolute',
+          top: insets.top,
+          left: 0,
+          right: 0,
+          backgroundColor: COLORS.themeColor,
+          alignItems: 'center',
+          opacity: scrollOffsetY.interpolate({
+            inputRange: [90, 110],
+            outputRange: [0, 1],
+          }),
+          transform: [
+            {
+              translateY: scrollOffsetY.interpolate({
+                inputRange: [90, 120],
+                outputRange: [30, 0],
+                extrapolate: 'clamp',
+              }),
+            },
+          ],
+        }}>
+        <View style={{marginTop: 5, marginBottom: 5}}>
+          <Text style={FONTS.normal}>Rahul Reddy T V</Text>
+          <Text style={FONTS.extraSmall}>React Native Developer</Text>
+        </View>
+      </Animated.View>
       <ScrollView
         style={GlobalStyles.ScrollView}
         onScroll={Animated.event(
@@ -68,7 +93,16 @@ const Home = () => {
         />
         {/* Main View */}
         <View style={[GlobalStyles.MainView]}>
-          <View style={GlobalStyles.ProfileView}></View>
+          <View style={GlobalStyles.ProfileView}>
+            <Image
+              style={GlobalStyles.ProfileImage}
+              source={require('../../assets/user.png')}
+            />
+            <View>
+              <Text style={FONTS.normal}>Rahul Reddy T V</Text>
+              <Text style={FONTS.extraSmall}>React Native Developer</Text>
+            </View>
+          </View>
         </View>
         <View style={GlobalStyles.BioView}>
           <View style={GlobalStyles.FlexRow}>
@@ -82,7 +116,7 @@ const Home = () => {
           </View>
           <View style={GlobalStyles.Bio}>
             <Text style={FONTS.small}>
-              A mobile app developer with 2 years of experience in developing
+              A mobile app developer with 1.7 years of experience in developing
               and maintaining iOS and Android applications. Strong skills in
               Javascript, React, and React Native, as well as experience with
               Agile development methodologies
@@ -209,50 +243,44 @@ const Home = () => {
             <FontAwesomeIcon name="user-plus" size={20} />
           </View>
           <ScrollView horizontal style={{marginVertical: 8}}>
-            <MaterialCommunityIcons
-              name="facebook"
-              size={30}
-              style={GlobalStyles.SocialIcons}
-            />
-            <MaterialCommunityIcons
-              name="twitter"
-              size={30}
-              style={GlobalStyles.SocialIcons}
-            />
-            <MaterialCommunityIcons
-              name="instagram"
-              size={30}
-              style={GlobalStyles.SocialIcons}
-            />
+            <TouchableOpacity
+              onPress={() =>
+                handleProject(
+                  'https://instagram.com/rahulweezy?igshid=MWI4MTIyMDE=}',
+                )
+              }>
+              <MaterialCommunityIcons
+                name="facebook"
+                size={30}
+                style={GlobalStyles.SocialIcons}
+              />
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              onPress={() =>
+                handleProject('https://www.facebook.com/reddy.sc.3')
+              }>
+              <MaterialCommunityIcons
+                name="instagram"
+                size={30}
+                style={GlobalStyles.SocialIcons}
+              />
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() =>
+                handleProject(
+                  'https://instagram.com/rahulweezy?igshid=MWI4MTIyMDE=}',
+                )
+              }>
+              <MaterialCommunityIcons
+                name="twitter"
+                size={30}
+                style={GlobalStyles.SocialIcons}
+              />
+            </TouchableOpacity>
           </ScrollView>
         </View>
       </ScrollView>
-      <Animated.View
-        style={{
-          position: 'absolute',
-          left: 0,
-          right: 0,
-          top: 0,
-          height: headerScrollHeight,
-          width: '100%',
-          overflow: 'hidden',
-          zIndex: 999,
-          // STYLE
-
-          backgroundColor: COLORS.themeColor,
-        }}>
-        <View style={GlobalStyles.ProfileView}>
-          <Image
-            style={GlobalStyles.ProfileImage}
-            source={require('../../assets/user.png')}
-          />
-
-          <View>
-            <Text style={FONTS.normal}>Rahul Reddy T V</Text>
-            <Text style={FONTS.extraSmall}>React Native Developer</Text>
-          </View>
-        </View>
-      </Animated.View>
     </View>
   );
 };
